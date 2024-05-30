@@ -9,7 +9,7 @@
 
   // Load and parse the CSV data
   async function loadData() {
-    data = await d3.csv('dataforfinal/2024_playoffs_data.csv');
+    data = await d3.csv('/final_project/dataforfinal/2024_playoffs_data.csv');
     teams = Array.from(new Set(data.map(d => d.Team)));
     selectedTeam = teams[0];
     updateChart();
