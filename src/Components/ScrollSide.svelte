@@ -61,10 +61,10 @@
     </div>
     <div class="charts-container">
       <div class="chart-one">
-        <svg id="chart1" />
+        <img src="public/offense.jpg" alt="Jordan Offense" class="chart-image" />
       </div>
       <div class="chart-two">
-        <svg id="chart2" />
+        <img src="public/defense.jpg" alt="Jordan Defense" class="chart-image" />
       </div>
     </div>
   </div>
@@ -73,21 +73,20 @@
 </section>
 
 <style>
-  #chart1,
-  #chart2 {
-    width: 100%;
-    height: 100%;
-  }
-  .chart-one {
-    width: 100%;
-    height: 100%;
-    border: 3px solid skyblue;
-  }
+  .chart-one,
   .chart-two {
     width: 100%;
     height: 100%;
-    border: 3px solid coral;
   }
+
+  .chart-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Ensure it doesn't exceed the container height */
+    display: block;
+    margin: auto;
+  }
+
   /* space after scroll is finished */
   .spacer {
     height: 40vh;
