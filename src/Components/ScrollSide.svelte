@@ -61,10 +61,10 @@
     </div>
     <div class="charts-container">
       <div class="chart-one">
-        <img src="public/offense.jpg" alt="Jordan Offense" class="chart-image" />
+        <img src="dist/offense.jpg" alt="Jordan Offense" class="chart-image" />
       </div>
       <div class="chart-two">
-        <img src="public/defense.jpg" alt="Jordan Defense" class="chart-image" />
+        <img src="dist/defense.jpg" alt="Jordan Defense" class="chart-image" />
       </div>
     </div>
   </div>
