@@ -3,6 +3,6 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/final_project/",
+  base: process.env.NODE_ENV === 'production' ? '/final_project/' : '/',
   plugins: [svelte()],
 })
