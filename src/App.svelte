@@ -5,7 +5,7 @@
   import Defensebubblechart from "./Components/defensebubblechart.svelte";
 
 </script>
-<Bubblechart />
+<bubblechart />
 <Scrolly />
 <ScrollSide />
-<Defensebubblechart />
+<defensebubblechart />
