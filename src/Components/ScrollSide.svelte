@@ -8,17 +8,17 @@
 
   // Paragraph text for scrolly
   $: steps = [
-    `<h1 class='step-title'>Step 1</h1>
+    `<h1 class='step-title'>Offensive Obliteration</h1>
        <br><br>
       <p>
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint aut corrupti ullam neque quia labore laborum perspiciatis, molestias amet at, voluptatem ratione quaerat in sit minima reprehenderit molestiae, nobis sed. Earum facere exercitationem sit rerum, expedita magni nihil alias?
+        This visualization allows for a clear comparison between teams, highlighting which teams excel offensively and how specific offensive features correlate with their overall win shares. Teams with longer bars have higher win shares, indicating a stronger offensive performance, while the color segmentation within each bar provides insights into the specific offensive strengths of each team. 
       </p>`,
-    `<h1 class='step-title'>Step 2</h1>
+    `<h1 class='step-title'>Defensive Demeanor</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint aut corrupti ullam neque quia labore laborum perspiciatis, molestias amet at, voluptatem ratione quaerat in sit minima reprehenderit molestiae, nobis sed. Earum facere exercitationem sit rerum, expedita magni nihil alias?
+        Each bar in the chart represents a different team, with the length of the bar indicating the total defensive win shares. The bars are divided into segments, each representing contributions from essential defensive metrics such as blocks (BLK), steals (STL), defensive rebounds (DREB), and opponent field goal percentage (OFG%).
         </p>
     <br><br>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint aut corrupti ullam neque quia labore laborum perspiciatis, molestias amet at, voluptatem ratione quaerat in sit minima reprehenderit molestiae, nobis sed. Earum facere exercitationem sit rerum, expedita magni nihil alias?
+    The color segmentation within each bar reveals which specific defensive features are the strongest for each team. For instance, a team with a significant portion of its bar in the 'blocks' segment highlights its strength in shot-blocking.
   `,
   ];
 
@@ -40,10 +40,11 @@
   $: if (typeof value !== "undefined") target2event[value]();
 </script>
 
-<h2 class="body-header">Side Scrolly Example</h2>
+<h2 class="body-header">Analyzing metrics on Both Ends of the Court</h2>
 <p class="body-text">
-  Here's an example of a typical side-scroller. It's responsive, and will fold
-  to an overlap scroll if the screen gets small enough:
+  From these 2 bubble charts, our goal is to display each players performance and contribution
+  on both sides of the ball, the larger the radius of circle indicates their presence on the Court is an asset to their teams success
+  :
 </p>
 <section>
   <!-- scroll container -->
@@ -68,7 +69,7 @@
     </div>
   </div>
   <br /><br />
-  <p class="body-text">And that's the end of our scrolly.</p>
+  <p class="body-text">You'll find the defense bubble chart below.</p>
 </section>
 
 <style>

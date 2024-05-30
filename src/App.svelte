@@ -1,21 +1,11 @@
 <script>
-  import Meta from "./Meta.svelte";
-  import Title from "./Components/Title.svelte";
-  import Intro from "./Components/Intro.svelte";
-  import TextAndMathEquations from "./Components/TextAndMathEquations.svelte";
-  import LineChart from "./Components/LineChart.svelte";
-  import ScrollCenter from "./Components/ScrollCenter.svelte";
-  import Conclusion from "./Components/Conclusion.svelte";
-  import Resources from "./Components/Resources.svelte";
   import ScrollSide from "./Components/ScrollSide.svelte";
-</script>
+  import Scrolly from "./Components/Scrolly.svelte";
+  import Bubblechart from "./Components/bubblechart.svelte";
+  import Defensebubblechart from "./Components/defensebubblechart.svelte";
 
-<Meta />
-<Title />
-<Intro />
-<TextAndMathEquations />
+</script>
+<Bubblechart />
+<Scrolly />
 <ScrollSide />
-<LineChart />
-<ScrollCenter />
-<Conclusion />
-<Resources />
+<Defensebubblechart />
