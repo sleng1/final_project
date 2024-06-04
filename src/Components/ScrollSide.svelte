@@ -40,6 +40,7 @@
   $: if (typeof value !== "undefined") target2event[value]();
 </script>
 
+<body>
 <h2 class="body-header">Analyzing metrics on Both Ends of the Court</h2>
 <p class="body-text">
   From these 2 bubble charts, our goal is to display each players performance and contribution
@@ -61,18 +62,25 @@
     </div>
     <div class="charts-container">
       <div class="chart-one">
-        <img src="/final_project/public/offense.jpg" alt="Jordan Offense" class="chart-image" />
+        <img src="src/assets/offense.jpg" alt="Jordan Offense" class="chart-image" />
       </div>
       <div class="chart-two">
-        <img src="/final_project/public/defense.jpg" alt="Jordan Defense" class="chart-image" />
+        <img src="src/assets/defense.jpg" alt="Jordan Defense" class="chart-image" />
       </div>
     </div>
   </div>
   <br /><br />
   <p class="body-text">You'll find the defense bubble chart below.</p>
 </section>
+</body>
 
 <style>
+
+  body {
+    background-image: url("src/assets/court.jpg");
+    background-size: 1600px;;
+  }
+
   .chart-one,
   .chart-two {
     width: 100%;
@@ -80,7 +88,7 @@
   }
 
   .chart-image {
-    width: 100%;
+    width: 60%;
     height: auto; /* Maintain aspect ratio */
     max-height: 100%; /* Ensure it doesn't exceed the container height */
     display: block;

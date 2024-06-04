@@ -77,22 +77,85 @@
       .attr('y', 20)
       .text('Points');
 
+    const tooltip = d3.select("#chart").append('div')
+      .attr("class", "tooltip")
+      .style("opacity", 0)
+      .style("background-color", "darkorange")
+      .style("border-radius", "5px")
+      .style("padding", "10px")
+      .style("color", "white")
+      .style("position", "absolute");
+
+    const showTooltip = function(event, d) {
+      d3.selectAll(".bubbles").style("opacity", 0.2);
+      d3.select(this).style("opacity", 0.9);
+
+      var matrix = this.getScreenCTM()
+        .translate(+ this.getAttribute("cx"), + this.getAttribute("cy"));
+
+      tooltip.transition().duration(200);
+      tooltip.style("opacity", 1)
+        .html("<b>Player Stats:</b> <br> Player: " + d.Player)
+        .style("left", (window.pageXOffset + matrix.e + 50) + "px")
+        .style("top", (window.pageYOffset + matrix.f + 50) + "px");
+    };
+
+    const hideTooltip = function(event, d) {
+      d3.selectAll(".bubbles").style("opacity", 0.9);
+      tooltip.transition().duration(200).style("opacity", 0);
+    };
+
     svg.append('g')
       .attr('stroke', 'black')
       .selectAll('circle')
       .data(data)
       .join('circle')
+      .attr('class', 'bubbles')
       .attr('cx', d => x(d.AST))
       .attr('cy', d => y(d.PTS))
       .attr('r', d => r(d.FGM))
       .attr('fill', 'steelblue')
-      .append('title')
-      .text(d => `${d.Player}\nAST: ${d.AST}\nPTS: ${d.PTS}\nFGM: ${d.FGM}`);
+      .on("mouseover", showTooltip)
+      .on("mousemove", showTooltip)
+      .on("mouseleave", hideTooltip);
+
+    // Adding a legend for bubble size
+    const legendSize = [d3.min(data, d => +d.FGM), d3.median(data, d => +d.FGM), d3.max(data, d => +d.FGM)];
+    const legend = svg.append('g')
+      .attr('transform', `translate(${width - margin.right - 100},${margin.top + 40})`);
+
+    legend.append('text')
+      .attr('x', 0)
+      .attr('y', -40)
+      .attr('text-anchor', 'middle')
+      .style('font-size', '12px')
+      .style('font-weight', 'bold')
+      .text('Bubble Size: Total FGM');
+
+    legend.selectAll('circle')
+      .data(legendSize)
+      .join('circle')
+      .attr('cx', 0)
+      .attr('cy', d => -r(d))
+      .attr('r', d => r(d))
+      .attr('fill', 'none')
+      .attr('stroke', 'black');
+
+    legend.selectAll('text.label')
+      .data(legendSize)
+      .join('text')
+      .attr('class', 'label')
+      .attr('x', 30)
+      .attr('y', d => -2 * r(d))
+      .attr('dy', '1.3em')
+      .text(d => d)
+      .style('font-size', '12px');
   }
 
   onMount(loadData);
 </script>
 
+<body>
 <main>
   <label for="team-select">Select Team:</label>
   <select id="team-select" bind:value={selectedTeam} on:change={updateChart}>
@@ -102,16 +165,28 @@
   </select>
   <svg id="chart"></svg>
 </main>
+</body>
 
 <style>
   main {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #FED8B1;
   }
   label {
     margin-right: 10px;
   }
   select {
     margin-bottom: 20px;
+  }
+  .tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 6px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
   }
 </style>

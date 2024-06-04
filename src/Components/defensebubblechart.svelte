@@ -77,7 +77,35 @@
         .attr('x', -height / 2 + margin.top)
         .attr('y', 20)
         .text('Steals');
-  
+        
+      const tooltip = d3.select("#defensive-chart").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0)
+      .style("background-color", "darkorange")
+      .style("border-radius", "5px")
+      .style("padding", "10px")
+      .style("color", "white")
+      .style("position", "absolute");
+
+    const showTooltip = function(event, d) {
+      d3.selectAll(".bubbles").style("opacity", 0.2);
+      d3.select(this).style("opacity", 0.9);
+
+      var matrix = this.getScreenCTM()
+        .translate(+ this.getAttribute("cx"), + this.getAttribute("cy"));
+
+      tooltip.transition().duration(200);
+      tooltip.style("opacity", 1)
+        .html("<b>Player Stats:</b> <br> Player: " + d.Player)
+        .style("left", (window.pageXOffset + matrix.e + 50) + "px")
+        .style("top", (window.pageYOffset + matrix.f + 50) + "px");
+    };
+
+    const hideTooltip = function(event, d) {
+      d3.selectAll(".bubbles").style("opacity", 0.9);
+      tooltip.transition().duration(200).style("opacity", 0);
+    };
+
       svg.append('g')
         .attr('stroke', 'black')
         .selectAll('circle')
@@ -88,13 +116,49 @@
         .attr('r', d => r(d.DREB))
         .attr('fill', 'steelblue')
         .append('title')
-        .text(d => `${d.Player}\nBLK: ${d.BLK}\nSTL: ${d.STL}\nDREB: ${d.DREB}`);
-    }
-  
+        .text(d => `${d.Player}\nBLK: ${d.BLK}\nSTL: ${d.STL}\nDREB: ${d.DREB}`)
+        .on("mouseover", showTooltip)
+        .on("mousemove", showTooltip)
+        .on("mouseleave", hideTooltip);
+
+           // Adding a legend for bubble size
+    const legendSize = [d3.min(data, d => +d.DREB), d3.median(data, d => +d.DREB), d3.max(data, d => +d.DREB)];
+    const legend = svg.append('g')
+      .attr('transform', `translate(${width - margin.right - 100},${margin.top + 40})`);
+
+    legend.append('text')
+      .attr('x', 0)
+      .attr('y', -40)
+      .attr('text-anchor', 'middle')
+      .style('font-size', '12px')
+      .style('font-weight', 'bold')
+      .text('Bubble Size: Total DREB');
+
+    legend.selectAll('circle')
+      .data(legendSize)
+      .join('circle')
+      .attr('cx', 0)
+      .attr('cy', d => -r(d))
+      .attr('r', d => r(d))
+      .attr('fill', 'none')
+      .attr('stroke', 'black');
+
+    legend.selectAll('text.label')
+      .data(legendSize)
+      .join('text')
+      .attr('class', 'label')
+      .attr('x', 30)
+      .attr('y', d => -2 * r(d))
+      .attr('dy', '1.3em')
+      .text(d => d)
+      .style('font-size', '12px');
+  }
+
     onMount(loadData);
   </script>
   
   <main>
+  <body>
     <label for="team-select-defensive">Select Team:</label>
     <select id="team-select-defensive" bind:value={selectedTeam} on:change={updateChart}>
       {#each teams as team}
@@ -102,12 +166,14 @@
       {/each}
     </select>
     <svg id="defensive-chart"></svg>
+  </body>
   </main>
   
   <style>
-    main {
+    body {
       font-family: Arial, sans-serif;
       margin: 20px;
+      background-color: #FFCCCB;
     }
     label {
       margin-right: 10px;
