@@ -115,6 +115,8 @@
       .attr('cy', d => y(d.PTS))
       .attr('r', d => r(d.FGM))
       .attr('fill', 'steelblue')
+      .append('title')
+      .text(d => `${d.Player}\nBLK: ${d.BLK}\nSTL: ${d.STL}\nDREB: ${d.DREB}`)
       .on("mouseover", showTooltip)
       .on("mousemove", showTooltip)
       .on("mouseleave", hideTooltip);
