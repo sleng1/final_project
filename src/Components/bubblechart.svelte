@@ -116,7 +116,7 @@
       .attr('r', d => r(d.FGM))
       .attr('fill', 'steelblue')
       .append('title')
-      .text(d => `${d.Player}\nBLK: ${d.BLK}\nSTL: ${d.STL}\nDREB: ${d.DREB}`)
+      .text(d => `${d.Player}\nPTS: ${d.PTS}\nAST: ${d.AST}\nFGM: ${d.FGM}`)
       .on("mouseover", showTooltip)
       .on("mousemove", showTooltip)
       .on("mouseleave", hideTooltip);
