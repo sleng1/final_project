@@ -62,10 +62,10 @@
     </div>
     <div class="charts-container">
       <div class="chart-one">
-        <img src="src/assets/offense.jpg" alt="Jordan Offense" class="chart-image" />
+        <img src="offense.jpg" alt="Jordan Offense" class="chart-image" />
       </div>
       <div class="chart-two">
-        <img src="src/assets/defense.jpg" alt="Jordan Defense" class="chart-image" />
+        <img src="defense.jpg" alt="Jordan Defense" class="chart-image" />
       </div>
     </div>
   </div>
@@ -77,7 +77,7 @@
 <style>
 
   body {
-    background-image: url("src/assets/court.jpg");
+    background-image: url("court.jpg");
     background-size: 1600px;;
   }
 
