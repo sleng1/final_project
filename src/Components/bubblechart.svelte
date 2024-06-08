@@ -56,7 +56,7 @@
 
     svg.append('text')
       .attr('x', width / 2)
-      .attr('y', margin.top / 2)
+      .attr('y', margin.top / 2 + 5)
       .attr('text-anchor', 'middle')
       .attr('font-size', '16px')
       .attr('font-weight', 'bold')
@@ -77,34 +77,6 @@
       .attr('y', 20)
       .text('Points');
 
-    const tooltip = d3.select("#chart").append('div')
-      .attr("class", "tooltip")
-      .style("opacity", 0)
-      .style("background-color", "darkorange")
-      .style("border-radius", "5px")
-      .style("padding", "10px")
-      .style("color", "white")
-      .style("position", "absolute");
-
-    const showTooltip = function(event, d) {
-      d3.selectAll(".bubbles").style("opacity", 0.2);
-      d3.select(this).style("opacity", 0.9);
-
-      var matrix = this.getScreenCTM()
-        .translate(+ this.getAttribute("cx"), + this.getAttribute("cy"));
-
-      tooltip.transition().duration(200);
-      tooltip.style("opacity", 1)
-        .html("<b>Player Stats:</b> <br> Player: " + d.Player)
-        .style("left", (window.pageXOffset + matrix.e + 50) + "px")
-        .style("top", (window.pageYOffset + matrix.f + 50) + "px");
-    };
-
-    const hideTooltip = function(event, d) {
-      d3.selectAll(".bubbles").style("opacity", 0.9);
-      tooltip.transition().duration(200).style("opacity", 0);
-    };
-
     svg.append('g')
       .attr('stroke', 'black')
       .selectAll('circle')
@@ -116,10 +88,7 @@
       .attr('r', d => r(d.FGM))
       .attr('fill', 'steelblue')
       .append('title')
-      .text(d => `${d.Player}\nPTS: ${d.PTS}\nAST: ${d.AST}\nFGM: ${d.FGM}`)
-      .on("mouseover", showTooltip)
-      .on("mousemove", showTooltip)
-      .on("mouseleave", hideTooltip);
+      .text(d => `${d.Player}\nPTS: ${d.PTS}\nAST: ${d.AST}\nFGM: ${d.FGM}`);
 
     // Adding a legend for bubble size
     const legendSize = [d3.min(data, d => +d.FGM), d3.median(data, d => +d.FGM), d3.max(data, d => +d.FGM)];
@@ -140,7 +109,7 @@
       .attr('cx', 0)
       .attr('cy', d => -r(d))
       .attr('r', d => r(d))
-      .attr('fill', 'none')
+      .attr('fill', 'none')  
       .attr('stroke', 'black');
 
     legend.selectAll('text.label')
@@ -166,6 +135,7 @@
     {/each}
   </select>
   <svg id="chart"></svg>
+  <p id="i">Hover over a bubble to view the stats of the player.</p>
 </main>
 </body>
 
@@ -181,14 +151,11 @@
   select {
     margin-bottom: 20px;
   }
-  .tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 6px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
+  #chart {
+    margin-top: 20px;
+  }
+  #i {
+    font-size: 14px;
+    padding-bottom: 20px;
   }
 </style>

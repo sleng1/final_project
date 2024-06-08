@@ -57,7 +57,7 @@
       // Add chart title below the x-axis
       svg.append('text')
         .attr('x', width / 2)
-        .attr('y', height + margin.bottom - 10)
+        .attr('y', margin.top / 2 + 5)
         .attr('text-anchor', 'middle')
         .attr('font-size', '16px')
         .attr('font-weight', 'bold')
@@ -166,6 +166,7 @@
       {/each}
     </select>
     <svg id="defensive-chart"></svg>
+    <p id="i">Hover over a bubble to view the stats of the player.</p>
   </body>
   </main>
   
@@ -181,5 +182,9 @@
     select {
       margin-bottom: 20px;
     }
+    #i {
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
   </style>
   
