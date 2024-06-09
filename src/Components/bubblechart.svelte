@@ -98,7 +98,7 @@
 
     legend.append('text')
       .attr('x', 0)
-      .attr('y', -40)
+      .attr('y', 170)
       .attr('text-anchor', 'middle')
       .style('font-size', '12px')
       .style('font-weight', 'bold')
@@ -108,7 +108,7 @@
       .data(legendSize)
       .join('circle')
       .attr('cx', 0)
-      .attr('cy', d => -r(d))
+      .attr('cy', d => -r(d) + 150)
       .attr('r', d => r(d))
       .attr('fill', 'none')  
       .attr('stroke', 'black');
@@ -118,7 +118,7 @@
       .join('text')
       .attr('class', 'label')
       .attr('x', 30)
-      .attr('y', d => -2 * r(d))
+      .attr('y', d => -2 * r(d) + 140)
       .attr('dy', '1.3em')
       .text(d => d)
       .style('font-size', '12px');
@@ -129,6 +129,7 @@
 
 <body>
 <h1 style="font-size: 38px; text-align: center;">Analyzing Offensive Vs. Defensive Performance In The 2024 NBA Playoffs</h1>
+<h2 style="text-align: center;">What matters more in the NBA: offense or defense?</h2>
 <main>
   <label for="team-select">Select Team:</label>
   <select id="team-select" bind:value={selectedTeam} on:change={updateChart}>

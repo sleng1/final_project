@@ -43,9 +43,8 @@
 <body>
 <h2 class="body-header">Analyzing metrics on Both Ends of the Court</h2>
 <p class="body-text">
-  From these 2 bubble charts, our goal is to display each players performance and contribution
-  on both sides of the ball, the larger the radius of circle indicates their presence on the Court is an asset to their teams success
-  :
+  In basketball, both offensive and defensive skills win games. Through analyzing key statistics,
+  our goal is to examine the relationship between good offense, good defense, and playoff success.
 </p>
 <section>
   <!-- scroll container -->
