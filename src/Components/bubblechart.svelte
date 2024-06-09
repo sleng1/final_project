@@ -86,7 +86,8 @@
       .attr('cx', d => x(d.AST))
       .attr('cy', d => y(d.PTS))
       .attr('r', d => r(d.FGM))
-      .attr('fill', 'steelblue')
+      .attr('fill', 'darkslateblue')
+      .attr('opacity', 0.9)
       .append('title')
       .text(d => `${d.Player}\nPTS: ${d.PTS}\nAST: ${d.AST}\nFGM: ${d.FGM}`);
 
@@ -127,6 +128,7 @@
 </script>
 
 <body>
+<h1 style="font-size: 38px; text-align: center;">Analyzing Offensive Vs. Defensive Performance In The 2024 NBA Playoffs</h1>
 <main>
   <label for="team-select">Select Team:</label>
   <select id="team-select" bind:value={selectedTeam} on:change={updateChart}>
@@ -143,7 +145,6 @@
   main {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #FED8B1;
   }
   label {
     margin-right: 10px;
@@ -157,5 +158,8 @@
   #i {
     font-size: 14px;
     padding-bottom: 20px;
+  }
+  body {
+    background-color: #FED8B1;
   }
 </style>

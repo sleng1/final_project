@@ -115,6 +115,7 @@
         .attr('cy', d => y(d.STL))
         .attr('r', d => r(d.DREB))
         .attr('fill', 'steelblue')
+        .attr('opacity', 0.9)
         .append('title')
         .text(d => `${d.Player}\nBLK: ${d.BLK}\nSTL: ${d.STL}\nDREB: ${d.DREB}`)
         .on("mouseover", showTooltip)
@@ -157,8 +158,8 @@
     onMount(loadData);
   </script>
   
-  <main>
   <body>
+  <main>
     <label for="team-select-defensive">Select Team:</label>
     <select id="team-select-defensive" bind:value={selectedTeam} on:change={updateChart}>
       {#each teams as team}
@@ -167,14 +168,13 @@
     </select>
     <svg id="defensive-chart"></svg>
     <p id="i">Hover over a bubble to view the stats of the player.</p>
-  </body>
   </main>
+  </body>
   
   <style>
-    body {
+    main {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background-color: #FFCCCB;
     }
     label {
       margin-right: 10px;
@@ -185,6 +185,9 @@
     #i {
     font-size: 14px;
     padding-bottom: 20px;
+  }
+  body {
+    background-color: #FFCCCB;
   }
   </style>
   
