@@ -16,9 +16,11 @@
     `<h1 class='step-title'>Quantifying Performances</h1>
       <p>
         The visualization below plots players' defensive ratings over their offensive ratings. A third variable, minutes per game, is measured in the size of the bubble.
+        Comparing bubble positions between teams that made it far in the playoffs vs teams that were knocked out early allows us to determine the impact of overall offensive
+        vs. defensive performance when it comes to playoff success.
       </p>
     <br><br>
-    Keep in mind, a higher offensive ratings and a lower defensive rating indicate better performance.
+    Keep in mind, higher offensive ratings and lower defensive ratings indicate better performance.
   `,
   ];
 

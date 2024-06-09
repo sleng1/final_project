@@ -284,7 +284,9 @@ MIN: ${C.MIN_x}`).on("mouseover",I).on("mousemove",I).on("mouseleave",B);const W
       </p>`,`<h1 class='step-title'>Quantifying Performances</h1>
       <p>
         The visualization below plots players' defensive ratings over their offensive ratings. A third variable, minutes per game, is measured in the size of the bubble.
+        Comparing bubble positions between teams that made it far in the playoffs vs teams that were knocked out early allows us to determine the impact of overall offensive
+        vs. defensive performance when it comes to playoff success.
       </p>
     <br><br>
-    Keep in mind, a higher offensive ratings and a lower defensive rating indicate better performance.
+    Keep in mind, higher offensive ratings and lower defensive ratings indicate better performance.
   `]),[a,n,l]}class u3 extends ze{constructor(t){super(),_e(this,t,o3,s3,Ae,{})}}function c3(e){let t,r,n,a,i,l,s,u,h,m,d,g,v,w;return t=new j5({}),n=new Ft({}),i=new I4({}),s=new r3({}),h=new Ft({}),d=new u3({}),v=new i3({}),{c(){Q0(t.$$.fragment),r=Q(),Q0(n.$$.fragment),a=Q(),Q0(i.$$.fragment),l=Q(),Q0(s.$$.fragment),u=Q(),Q0(h.$$.fragment),m=Q(),Q0(d.$$.fragment),g=Q(),Q0(v.$$.fragment)},m(x,S){L0(t,x,S),s0(x,r,S),L0(n,x,S),s0(x,a,S),L0(i,x,S),s0(x,l,S),L0(s,x,S),s0(x,u,S),L0(h,x,S),s0(x,m,S),L0(d,x,S),s0(x,g,S),L0(v,x,S),w=!0},p:V0,i(x){w||(C0(t.$$.fragment,x),C0(n.$$.fragment,x),C0(i.$$.fragment,x),C0(s.$$.fragment,x),C0(h.$$.fragment,x),C0(d.$$.fragment,x),C0(v.$$.fragment,x),w=!0)},o(x){I0(t.$$.fragment,x),I0(n.$$.fragment,x),I0(i.$$.fragment,x),I0(s.$$.fragment,x),I0(h.$$.fragment,x),I0(d.$$.fragment,x),I0(v.$$.fragment,x),w=!1},d(x){x&&(i0(r),i0(a),i0(l),i0(u),i0(m),i0(g)),H0(t,x),H0(n,x),H0(i,x),H0(s,x),H0(h,x),H0(d,x),H0(v,x)}}}class h3 extends ze{constructor(t){super(),_e(this,t,null,c3,Ae,{})}}new h3({target:document.getElementById("app")});
